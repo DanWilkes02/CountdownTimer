@@ -4,9 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CountdownTimer"
+        xmlns:viewmodels="clr-namespace:CountdownTimer.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <viewmodels:CountdownViewModel/>
+    </Window.DataContext>
     <Grid>
-        
+        <Label Margin="195,127,195.4,161.8" Content="{Binding CountdownModel.SecondsRemaining}"/>
+        <Button IsEnabled="{Binding isStartButtonEnabled}" Command="{Binding StartCountdownCommand}" Margin="120,200,136.4,89.8" Content="Start"/>
+        <Button IsEnabled="{Binding isStopButtonEnabled}" Command="{Binding StopCountdownCommand}" Margin="120,247,136.4,42.8" Content="Stop"/>
     </Grid>
 </Window>
