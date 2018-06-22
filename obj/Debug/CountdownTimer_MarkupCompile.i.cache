@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Daniel Wilkes\Documents\Visual Studio 2017\Projects\CountdownTimer\CountdownTimer\App.xaml
-2-2043538229
+3-760096551
 
-14676794065
+17-136825007
 131569487696
-MainWindow.xaml;Views\CountdownView.xaml;
+MainWindow.xaml;Views\CountdownSettingsView.xaml;Views\CountdownView.xaml;
 
 True
 
