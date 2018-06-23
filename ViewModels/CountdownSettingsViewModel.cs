@@ -11,7 +11,7 @@ namespace CountdownTimer.ViewModels
 
         public CountdownSettingsViewModel()
         {
-            Console.WriteLine("abc");
+            
         }
     }
 }
