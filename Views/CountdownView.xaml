@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="CountdownTimer.Views.CountdownView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CountdownTimer.Views"
+        mc:Ignorable="d">
+
+    <Grid>
+        <Label Margin="195,127,195.4,161.8" Content="{Binding CountdownModel.SecondsRemaining}"/>
+        <Button IsEnabled="{Binding isStartButtonEnabled}" Command="{Binding StartCountdownCommand}" Margin="120,200,136.4,89.8" Content="Start"/>
+        <Button IsEnabled="{Binding isStopButtonEnabled}" Command="{Binding StopCountdownCommand}" Margin="120,247,136.4,42.8" Content="Stop"/>
+        <Button Content="Settings" Margin="326,10,10,282.2" Command="{Binding SettingsCommand}"/>
+    </Grid>
+</UserControl>
