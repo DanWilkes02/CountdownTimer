@@ -10,5 +10,7 @@ namespace CountdownTimer.ViewModels
     public class BaseViewModel : ObservableObject
     {
         //Only Logic pertaining to every VM should reside here. 
+
+        
     }
 }

@@ -11,21 +11,26 @@ namespace CountdownTimer.ViewModels
 {
     public class CountdownViewModel : BaseViewModel
     {
-        private DispatcherTimer _countdownTimer;
 
+        
+        private DispatcherTimer _countdownTimer;
         private bool _isRunning;
         
         private ApplicationViewModel _applicationViewModel;
         public ApplicationViewModel ApplicationViewModel { get; private set; }
 
 
-        public CountdownModel CountdownModel { get; set; }
+        public CountdownModel CountdownModel { get; private set; }
+
+        public CountdownSettingsViewModel CountdownSettingsViewModel { get; private set; }
+
         private bool _isStartButtonEnabled;
         public bool isStartButtonEnabled
         {
             get { return _isStartButtonEnabled; }
             set { OnPropertyChanged(ref _isStartButtonEnabled, value); }
         }
+
         private bool _isStopButtonEnabled;
         public bool isStopButtonEnabled
         {
@@ -37,18 +42,25 @@ namespace CountdownTimer.ViewModels
         public ICommand StartCountdownCommand { get; private set; }
         public ICommand StopCountdownCommand { get; private set; }
         public ICommand SettingsCommand { get; private set; }
+        public ICommand ResetCommand { get; private set; }
 
 
-        public CountdownViewModel(ApplicationViewModel applicationViewModel)
+        public CountdownViewModel(ApplicationViewModel applicationViewModel, CountdownModel countdownModel)
         {
-            CountdownModel = new CountdownModel();
-            CountdownModel.SecondsRemaining = 10;
+            CountdownModel = countdownModel;
+            CountdownModel.SecondsRemaining = CountdownModel.MaxSeconds;
             StartCountdownCommand = new RelayCommand(StartCountdown);
             StopCountdownCommand = new RelayCommand(StopCountdown);
             SettingsCommand = new RelayCommand(GoToSettings);
+            ResetCommand = new RelayCommand(ResetTimer);
             _isRunning = false;
             isStartButtonEnabled = true;
             isStopButtonEnabled = true;
+            //CountdownSettingsViewModel = new CountdownSettingsViewModel(CountdownModel, _applicationViewModel);
+            
+            //Initialises AVM as the one which created it 
+            //so there is always only one AVM instance to easily inform
+            //the main window. 
             _applicationViewModel = applicationViewModel;
         }
 
@@ -69,6 +81,7 @@ namespace CountdownTimer.ViewModels
 
         public void OnTimer_Tick(object sender, EventArgs e)
         {
+            //Auto stops timer at 0s 
             if (CountdownModel.SecondsRemaining > 0)
                 CountdownModel.SecondsRemaining--;
             else
@@ -96,8 +109,10 @@ namespace CountdownTimer.ViewModels
 
         public void GoToSettings(object obj)
         {
-            _applicationViewModel.CurrentView = new CountdownSettingsViewModel();
+            //Changes the view to the CSVM
+            _applicationViewModel.CurrentView = new CountdownSettingsViewModel(CountdownModel, _applicationViewModel);
         }
-    
+
+        public void ResetTimer(object obj) => CountdownModel.SecondsRemaining = CountdownModel.MaxSeconds;
     }
 }

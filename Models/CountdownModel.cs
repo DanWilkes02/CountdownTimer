@@ -15,5 +15,13 @@ namespace CountdownTimer.Models
             get { return _secondsRemaining; }
             set { OnPropertyChanged(ref _secondsRemaining, value); }
         }
+
+        private  double _maxSeconds;
+        public  double MaxSeconds { get { return _maxSeconds; }  set { _maxSeconds = value; } }
+
+        public CountdownModel()
+        {
+            MaxSeconds = 10;
+        }
     }
 }

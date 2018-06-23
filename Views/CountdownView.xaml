@@ -11,5 +11,6 @@
         <Button IsEnabled="{Binding isStartButtonEnabled}" Command="{Binding StartCountdownCommand}" Margin="120,200,136.4,89.8" Content="Start"/>
         <Button IsEnabled="{Binding isStopButtonEnabled}" Command="{Binding StopCountdownCommand}" Margin="120,247,136.4,42.8" Content="Stop"/>
         <Button Content="Settings" Margin="326,10,10,282.2" Command="{Binding SettingsCommand}"/>
+        <Button Content="Reset" Command="{Binding ResetCommand}" Margin="10,12,318,283.4"/>
     </Grid>
 </UserControl>
