@@ -16,6 +16,9 @@
         <DataTemplate DataType="{x:Type viewmodels:CountdownViewModel}">
             <views:CountdownView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:CountdownSettingsViewModel}">
+            <views:CountdownSettingsView/>
+        </DataTemplate>
         
     </Window.Resources>
 

@@ -57,8 +57,13 @@
     <Compile Include="Models\CountdownModel.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="ViewModels\ApplicationViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\CountdownSettingsViewModel.cs" />
     <Compile Include="ViewModels\CountdownViewModel.cs" />
     <Compile Include="ObservableObject.cs" />
+    <Compile Include="Views\CountdownSettingsView.xaml.cs">
+      <DependentUpon>CountdownSettingsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CountdownView.xaml.cs">
       <DependentUpon>CountdownView.xaml</DependentUpon>
     </Compile>
@@ -74,6 +79,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\CountdownSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CountdownView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
